@@ -12,18 +12,18 @@ resource "aws_instance" "web" {
 
   ami           = "ami-01581ffba3821cdf3"
   instance_type = "t2.micro"
-  security_groups = [aws_security_group.ssh_http.name]
+  security_groups = [aws_security_group.http.name]
   user_data       = file("template/user_data.sh")
   monitoring = true
 
   tags = {
-    "Name" = "ubuntu-web"
+    "Name" = "ubuntu-web-server"
   }
 }
 
-resource "aws_security_group" "ssh_http" {
-  name        = "ssh_http"
-  description = "Allow SSH and HTTP"
+resource "aws_security_group" "http" {
+  name        = "http"
+  description = "Allow HTTP traffic"
 
   ingress {
     from_port   = var.server_port
