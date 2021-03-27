@@ -5,7 +5,6 @@ provider "aws" {
 variable "server_port" {
   description = "The port for HTTP request"
   type = number
-  default = 80
 }
 
 resource "aws_instance" "web" {
