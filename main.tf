@@ -8,7 +8,6 @@ variable "server_port" {
 }
 
 resource "aws_instance" "web" {
-
   ami           = "ami-01581ffba3821cdf3"
   instance_type = "t2.micro"
   security_groups = [aws_security_group.http.name]
